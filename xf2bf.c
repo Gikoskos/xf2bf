@@ -141,8 +141,6 @@ char *readNextWordFromFile(FILE *fd)
  * or in this format "ab", "12" etc */
 bool isSingleHexByteString(char *str)
 {
-    bool retval = false;
-
     if (str) {
         size_t len = strlen(str);
 
@@ -152,19 +150,19 @@ bool isSingleHexByteString(char *str)
             if (str[0] == '0' && str[1] == 'x') {
 
                 if (isxdigit(str[2]) && isxdigit(str[3]))
-                    retval = true;
+                    return true;
 
             }
         //else if it's 2 characters check for this format "c3" etc
         } else if (len == 2) {
 
             if (isxdigit(str[0]) && isxdigit(str[1]))
-                retval = true;
+                return true;
 
         }
     }
 
-    return retval;
+    return false;
 }
 
 /* Takes as argument a filename that points to a file containing 

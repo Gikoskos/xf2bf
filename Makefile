@@ -1,5 +1,5 @@
 CC              = gcc
-CFLAGS          = -std=c11 -O3 -Wall -Wextra -pedantic
+CFLAGS          = -O3 -Wall -Wextra -pedantic
 EXE             =
 
 ifeq ($(OS),Windows_NT)

@@ -83,8 +83,8 @@ char *readNextWordFromFile(FILE *fd)
     //stores the current size of the buff array
     size_t curr_size = 0;
 
-    //temporary byte to store the current character read from the file
-    char c;
+    //temporary int to store the current character read from the file
+    int c;
 
     //skip all initial whitespace until we hit a word character or EOF
     while ( (c = fgetc(fd)) != EOF && isspace(c));
@@ -115,7 +115,7 @@ char *readNextWordFromFile(FILE *fd)
             }
 
             //store the character to the array and increment our index
-            buff[idx++] = c;
+            buff[idx++] = (char)c;
 
         } while ((c = fgetc(fd)) != EOF && !isspace(c));
 
